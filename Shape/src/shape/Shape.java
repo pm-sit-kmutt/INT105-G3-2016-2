@@ -2,7 +2,7 @@
 package shape;
 
 
-public abstract class Shape {
+public abstract class Shape implements Comparable<Shape>{
     private String color;
     public static enum ShapeType{
         Circle,Rectangle
@@ -36,6 +36,23 @@ public abstract class Shape {
     
     public abstract double getArea();
     public abstract double getPerimeter();
+
+    @Override
+    public int compareTo(Shape obj) {
+        int compare;
+//        if(this.getArea()<obj.getArea())
+//            compare=-1;
+//        else if(this.getArea()>obj.getArea())
+//            compare=1;
+//        else
+//            compare=0;
+
+        compare=(int)(this.getArea()-obj.getArea());
+        
+        return compare;
+    }
+    
+    
     
     public String toString(){
         return type+" color: "+color+" Area:"+getArea()+" Perimeter: "+getPerimeter();
